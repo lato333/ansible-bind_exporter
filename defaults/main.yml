@@ -3,6 +3,13 @@ bind_exporter_version: 0.7.0
 bind_exporter_binary_local_dir: ""
 bind_exporter_web_listen_address: "0.0.0.0:9119"
 
+bind_exporter_tls_server_config: {}
+
+bind_exporter_http_server_config: {}
+
+bind_exporter_basic_auth_users: {}
+
+
 # Customize the defualt PID file.
 # bind_exporter_pid_file: /run/named/named.pid
 bind_exporter_stats_groups:

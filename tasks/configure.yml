@@ -8,6 +8,23 @@
     mode: 0644
   notify: restart bind_exporter
 
+- name: Create bind_exporter config directory
+  ansible.builtin.file:
+    path: "/etc/bind_exporter"
+    state: directory
+    owner: root
+    group: root
+    mode: u+rwX,g+rwX,o=rX
+
+- name: Copy the bind_exporter config file
+  ansible.builtin.template:
+    src: config.yaml.j2
+    dest: /etc/bind_exporter/config.yaml
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart bind_exporter
+
 - name: Allow bind_exporter port in SELinux on RedHat OS family
   seport:
     ports: "{{ bind_exporter_web_listen_address.split(':')[-1] }}"
